@@ -9,20 +9,22 @@ app = Flask(__name__)
 def text_home():
     return render_template('home.html')
 
-@app.route('/text/api/test1.0/content',methods = ['GET'])
-def text_add():
-    return render_template("addText.html")
-
-@app.route("/text/api/test1.0/content",methods = ['POST'])
-def text_submittal():
-    add()
+@app.route("/getnotices/",methods = ['GET'])
+def text_list():
     listText = session.query(Text).all()
     return render_template('textList.html', listText = listText)
 
-@app.route("/text/api/test1.0/update",methods = ['GET'])
-def text_update():
-    update()
-    render_template('updateText.html')
+@app.route("/postnotices/",methods = ['GET'])
+def text_add():
+    return render_template("addText.html")
+
+@app.route("/postnotices/", methods = ['POST'])
+def text_submittal():
+    add()
+    listText = session.query(Text).all()
+    return render_template('textList.html', listText= listText)
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
