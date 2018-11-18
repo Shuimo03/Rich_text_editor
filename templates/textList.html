@@ -12,7 +12,7 @@
 <body>
     <h2 class="text-primary">文章列表</h2>
     <br><br>
-    <input type="button" value="发布文章" class="btn btn-default" onclick="location.href = '/postnotices/content'">
+    <input type="button" value="发布文章" class="btn btn-default" onclick="location.href = '/notices/'">
     <br><br>
     <table class="table table-bordered">
            <thead>
@@ -27,7 +27,7 @@
                <tr>
                     <td>{{text.Content}}</td>
                     <td>{{text.DataCreateTime}}</td>
-                    <td><a onclick="location.href = '/text/api/test1.0/update'">编辑</a></td>
+                    <td><a onclick="location.href = '/notices/update/{{text.ID}}'">编辑</a></td>
                </tr>
                {% endfor %}
            </tbody> 
